@@ -2,11 +2,11 @@
   "name": "mail-maze",
   "version": "0.0.1",
   "description": "Mail maze helps you to generate programmatic email and send them with required intervals and loops.",
-  "main": "build/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "yarn test",
-    "start": "yarn build/index.js",
-    "dev": "tsc"
+    "start": "node dist/index.js",
+    "dev": "tsc && node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/EasyKoodi/mail-maze/issues"
   },
-  "homepage": "https://github.com/EasyKoodi/mail-maze#readme"
+  "homepage": "https://github.com/EasyKoodi/mail-maze#readme",
+  "dependencies": {
+    "typescript": "4.5.3"
+  }
 }
