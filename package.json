@@ -2,9 +2,11 @@
   "name": "mail-maze",
   "version": "0.0.1",
   "description": "Mail maze helps you to generate programmatic email and send them with required intervals and loops.",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
-    "test": "yarn test"
+    "test": "yarn test",
+    "start": "yarn build/index.js",
+    "dev": "tsc"
   },
   "repository": {
     "type": "git",
