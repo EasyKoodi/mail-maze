@@ -19,7 +19,7 @@
   ],
   "author": "Roman Tuomisto & Julia Matviishyna",
   "license": "MIT",
-  "type": "module",
+  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/EasyKoodi/mail-maze/issues"
   },

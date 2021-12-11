@@ -1,5 +1,5 @@
-import { config } from ".";
+import config from '.';
 
-test("should return config", () => {
-  config({ looped: false });
+test('should return config', () => {
+    const mailMaze = config({ emails: ['tuomroman@gmail.com'], limit: 99 });
 });

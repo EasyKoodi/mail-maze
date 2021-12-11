@@ -1,5 +1,4 @@
 export interface IConfig {
-    items: any[];
-    loopTimes: number;
-    looped: boolean;
+    emails: string[];
+    limit: number | undefined;
 }

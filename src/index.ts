@@ -1,16 +1,31 @@
-import { IConfig } from "./@types/types";
+import { IConfig } from './@types/types';
 
-export const config = (config: IConfig) => {
-    return new MailMaze(config);
-}
+const config = (config: IConfig) => {
+    const mailMaze = new MailMaze(config).filterMailMaze();
+    if (!mailMaze.emails) {
+        return new Error("Email list wasn't provided");
+    } else if (!mailMaze.limit) {
+        return new Error("Limit wasn't provided");
+    } else {
+        return mailMaze;
+    }
+};
 
 class MailMaze implements IConfig {
-    public items: any[];
-    public looped: boolean;
-    public loopTimes: number;
+    public emails: string[];
+    public limit: number | undefined;
     public constructor(config: IConfig) {
-        this.items = config.items || undefined;
-        this.looped = config.looped || false;
-        this.loopTimes = config.loopTimes || 1;
+        this.emails = config.emails || undefined;
+        this.limit = config.limit || undefined;
     }
+    public filterMailMaze = () => {
+        for (const key in this) {
+            if (this[key] === undefined) {
+                delete this[key];
+            }
+        }
+        return this;
+    };
 }
+
+export default config;
