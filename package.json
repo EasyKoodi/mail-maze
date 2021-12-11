@@ -1,0 +1,24 @@
+{
+  "name": "mail-maze",
+  "version": "0.0.1",
+  "description": "Mail maze helps you to generate programmatic email and send them with required intervals and loops.",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/EasyKoodi/mail-maze.git"
+  },
+  "keywords": [
+    "Email",
+    "sending",
+    "automation"
+  ],
+  "author": "Roman Tuomisto & Julia Matviishyna",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EasyKoodi/mail-maze/issues"
+  },
+  "homepage": "https://github.com/EasyKoodi/mail-maze#readme"
+}
