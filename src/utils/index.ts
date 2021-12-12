@@ -12,6 +12,6 @@ export function chunkArray(emails: string[], limit: number) {
         },
         [],
     );
-    
+
     return result; // result: [['a','b'], ['c','d'], ['e']];
 }
