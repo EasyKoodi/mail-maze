@@ -3,7 +3,7 @@ import { chunkArray } from './utils';
 
 export const configMailMaze = (config: IConfig) => {
     const mailMaze = new MailMaze(config).filterMailMaze().createSequence();
-    if (!mailMaze?.emails) {
+    if (!mailMaze?.emails.length) {
         return new Error("Email list wasn't provided");
     } else if (!mailMaze?.limit) {
         return new Error("Limit wasn't provided");
@@ -18,7 +18,7 @@ class MailMaze implements IConfig {
     public chunks?: any[];
     public constructor(config: IConfig) {
         this.emails = config.emails || undefined;
-        this.limit = config.limit || 99;
+        this.limit = config.limit || 0;
     }
     public filterMailMaze = () => {
         for (const key in this) {
