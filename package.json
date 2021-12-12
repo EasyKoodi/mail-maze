@@ -1,45 +1,47 @@
 {
-  "name": "mail-maze",
-  "version": "0.0.1",
-  "description": "Mail maze helps you to generate programmatic email and send them with required intervals and loops.",
-  "main": "dist/index.js",
-  "scripts": {
-    "test": "jest",
-    "start": "node dist/index.js",
-    "dev": "tsc && node dist/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/EasyKoodi/mail-maze.git"
-  },
-  "keywords": [
-    "Email",
-    "sending",
-    "automation"
-  ],
-  "author": "Roman Tuomisto & Julia Matviishyna",
-  "license": "MIT",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/EasyKoodi/mail-maze/issues"
-  },
-  "homepage": "https://github.com/EasyKoodi/mail-maze#readme",
-  "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.16.0",
-    "@types/jest": "27.0.3",
-    "@types/node": "16.11.12",
-    "@typescript-eslint/eslint-plugin": "5.6.0",
-    "@typescript-eslint/parser": "5.6.0",
-    "jest": "27.4.4",
-    "ts-jest": "27.1.1",
-    "ts-node": "10.4.0",
-    "typescript": "4.5.3"
-  },
-  "prettier": {
-    "tabWidth": 4,
-    "singleQuote": true,
-    "trailingComma": "all",
-    "arrowParens": "always",
-    "proseWrap": "always"
-  }
+    "name": "mail-maze",
+    "version": "0.0.1",
+    "description": "Mail maze helps you to generate programmatic email and send them with required intervals and loops.",
+    "main": "dist/index.js",
+    "scripts": {
+        "test": "jest",
+        "start": "npm run build:live",
+        "build": "tsc -p .",
+        "build:live": "nodemon --watch 'src/**/*.ts' --exec \"ts-node\" src/index.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/EasyKoodi/mail-maze.git"
+    },
+    "keywords": [
+        "Email",
+        "sending",
+        "automation"
+    ],
+    "author": "Roman Tuomisto & Julia Matviishyna",
+    "license": "MIT",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/EasyKoodi/mail-maze/issues"
+    },
+    "homepage": "https://github.com/EasyKoodi/mail-maze#readme",
+    "devDependencies": {
+        "@babel/plugin-transform-modules-commonjs": "7.16.0",
+        "@types/jest": "27.0.3",
+        "@types/node": "16.11.12",
+        "@typescript-eslint/eslint-plugin": "5.6.0",
+        "@typescript-eslint/parser": "5.6.0",
+        "jest": "27.4.4",
+        "nodemon": "2.0.15",
+        "ts-jest": "27.1.1",
+        "ts-node": "10.4.0",
+        "typescript": "4.5.3"
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "singleQuote": true,
+        "trailingComma": "all",
+        "arrowParens": "always",
+        "proseWrap": "always"
+    }
 }
