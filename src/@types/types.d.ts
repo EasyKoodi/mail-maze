@@ -1,18 +1,21 @@
+export type Providers = 'sending-blue' | 'send-grid' | 'mailgun';
+
 export interface IConfig {
     emails: string[];
     limit: number;
-    chunks?: any[];
+    chunks?: IContact[][];
 }
 
-export interface ISender {
+export interface IContact {
     name: string;
     email: string;
 }
 
 export interface IProviderConfig {
     apiKey: string;
-    apiSecret: string;
-    sender: ISender;
-    recepient: string | string[];
-    title: string;
+    sender: IContact;
+    reciever: IContact;
+    recievers?: IContact[];
+    subject: string;
+    body: string;
 }

@@ -1,4 +1,5 @@
-import { IConfig } from './@types/types';
+import { IConfig, IContact, IProviderConfig, Providers } from './@types/types';
+import Provider from './providers';
 import { chunkArray } from './utils';
 
 export const configMailMaze = (config: IConfig) => {
@@ -15,7 +16,7 @@ export const configMailMaze = (config: IConfig) => {
 class MailMaze implements IConfig {
     public emails: string[];
     public limit: number;
-    public chunks?: any[];
+    public chunks?: IContact[][];
     public constructor(config: IConfig) {
         this.emails = config.emails || undefined;
         this.limit = config.limit || 0;
@@ -40,5 +41,17 @@ class MailMaze implements IConfig {
     /** Get Chunks */
     public getChunks = () => {
         return this.chunks;
+    };
+    /** Send in sequences */
+    public sendInSequences = (
+        config: IProviderConfig,
+        providerName: Providers,
+    ) => {
+        const provider = new Provider(config);
+        if (this.chunks?.length) {
+            this.chunks.map((contacts: IContact[]) => {
+                provider.sendEmail(providerName, contacts);
+            });
+        }
     };
 }

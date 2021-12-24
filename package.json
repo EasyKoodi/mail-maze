@@ -31,6 +31,9 @@
         "url": "https://github.com/EasyKoodi/mail-maze/issues"
     },
     "homepage": "https://github.com/EasyKoodi/mail-maze#readme",
+    "dependencies": {
+        "sib-api-v3-sdk": "8.2.1"
+    },
     "devDependencies": {
         "@babel/plugin-transform-modules-commonjs": "7.16.0",
         "@types/jest": "27.0.3",
