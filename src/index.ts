@@ -37,4 +37,8 @@ class MailMaze implements IConfig {
             return this;
         }
     };
+    /** Get Chunks */
+    public getChunks = () => {
+        return this.chunks;
+    };
 }
