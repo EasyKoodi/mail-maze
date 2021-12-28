@@ -1,8 +1,13 @@
-import { IConfig, IContact, IProviderConfig, Providers } from './@types/types';
+import {
+    IContact,
+    IMailMaze,
+    IProviderConfig,
+    Providers,
+} from './@types/types';
 import Provider from './providers';
 import { chunkArray } from './utils';
 
-export const configMailMaze = (config: IConfig) => {
+export const configMailMaze = (config: IMailMaze) => {
     const mailMaze = new MailMaze(config).filterMailMaze().createSequence();
     if (!mailMaze?.emails.length) {
         return new Error("Email list wasn't provided");
@@ -13,12 +18,18 @@ export const configMailMaze = (config: IConfig) => {
     }
 };
 
-class MailMaze implements IConfig {
-    public emails: string[];
+class MailMaze implements IMailMaze {
+    public emails: IContact[];
     public limit: number;
-    public chunks?: IContact[][];
-    public constructor(config: IConfig) {
+    public provider: Providers;
+    public providerConfig: IProviderConfig;
+    public chunks?: Array<IContact[]>;
+    public constructor(config: IMailMaze) {
         this.emails = config.emails || undefined;
+        this.provider = config.provider;
+        this.providerConfig = new Provider(
+            config.providerConfig,
+        ).getProviderConfig();
         this.limit = config.limit || 0;
     }
     public filterMailMaze = () => {

@@ -1,9 +1,11 @@
 export type Providers = 'sending-blue' | 'send-grid' | 'mailgun';
 
-export interface IConfig {
-    emails: string[];
+export interface IMailMaze {
+    emails: IContact[];
     limit: number;
-    chunks?: IContact[][];
+    provider: Providers;
+    providerConfig: IProviderConfig;
+    chunks?: Array<IContact[]>;
 }
 
 export interface IContact {

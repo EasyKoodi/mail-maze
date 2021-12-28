@@ -2,12 +2,12 @@ import { IProviderConfig, IContact, Providers } from '../@types/types';
 import { sendWithSendingBlue } from './sendingBlue';
 
 export default class Provider {
-    private apiKey: string | undefined;
+    private apiKey: string;
     private sender: IContact;
-    private reciever: IContact | undefined;
-    private recievers?: IContact[] | undefined;
-    private subject: string | undefined;
-    private body: string | undefined;
+    private reciever: IContact;
+    private recievers?: IContact[];
+    private subject: string;
+    private body: string;
     /** Create Provider instance */
     public constructor(config: IProviderConfig) {
         this.apiKey = config.apiKey || undefined;
