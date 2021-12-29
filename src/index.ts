@@ -23,7 +23,7 @@ class MailMaze implements IMailMaze {
     public limit: number;
     public provider: Providers;
     public providerConfig: IProviderConfig;
-    public chunks?: Array<IContact[]>;
+    public chunks?: any;
     public constructor(config: IMailMaze) {
         this.emails = config.emails || undefined;
         this.provider = config.provider;
@@ -54,14 +54,11 @@ class MailMaze implements IMailMaze {
         return this.chunks;
     };
     /** Send in sequences */
-    public sendInSequences = (
-        config: IProviderConfig,
-        providerName: Providers,
-    ) => {
+    public sendInSequences = (config: IProviderConfig) => {
         const provider = new Provider(config);
         if (this.chunks?.length) {
             this.chunks.map((contacts: IContact[]) => {
-                provider.sendEmail(providerName, contacts);
+                provider.sendEmail(this.provider, contacts);
             });
         }
     };

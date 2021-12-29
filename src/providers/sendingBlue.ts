@@ -1,12 +1,12 @@
 import SibApiV3Sdk from 'sib-api-v3-sdk';
-import { IContact, IProviderConfig } from '../@types/types';
+import { IEmail, IProviderConfig } from '../@types/types';
 
 export async function sendWithSendingBlue(
     config: IProviderConfig,
-
-    contacts: IContact[],
+    email: IEmail,
 ) {
-    const { subject, reciever, sender, apiKey, body } = config;
+    const { sender, apiKey } = config;
+    const { subject, body, reciever, recievers } = email;
     const defaultClient = SibApiV3Sdk.ApiClient.instance;
 
     const apiKeyFromSetings = defaultClient.authentications['api-key'];
@@ -22,9 +22,9 @@ export async function sendWithSendingBlue(
         name: sender.name,
         email: sender.email,
     };
-    sendSmtpEmail.to = [{ email: reciever.email, name: reciever.name }];
-    if (contacts) {
-        sendSmtpEmail.bcc = contacts;
+    sendSmtpEmail.to = [{ email: reciever?.email, name: reciever?.name }];
+    if (recievers) {
+        sendSmtpEmail.bcc = recievers;
     }
     sendSmtpEmail.replyTo = {
         email: sender.email,

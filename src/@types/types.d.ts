@@ -5,7 +5,7 @@ export interface IMailMaze {
     limit: number;
     provider: Providers;
     providerConfig: IProviderConfig;
-    chunks?: Array<IContact[]>;
+    chunks?: any;
 }
 
 export interface IContact {
@@ -14,10 +14,13 @@ export interface IContact {
 }
 
 export interface IProviderConfig {
-    apiKey: string;
+    apiKey: string | undefined;
     sender: IContact;
-    reciever: IContact;
+}
+
+export interface IEmail {
+    reciever?: IContact;
     recievers?: IContact[];
-    subject: string;
-    body: string;
+    subject: string | undefined;
+    body: string | undefined;
 }
