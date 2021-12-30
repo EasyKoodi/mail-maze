@@ -1,6 +1,6 @@
 {
     "name": "mail-maze",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Mail maze helps you to generate programmatic email and send them with required intervals and loops.",
     "main": "dist/index.js",
     "private": false,
@@ -31,6 +31,9 @@
         "url": "https://github.com/EasyKoodi/mail-maze/issues"
     },
     "homepage": "https://github.com/EasyKoodi/mail-maze#readme",
+    "dependencies": {
+        "sib-api-v3-sdk": "8.2.1"
+    },
     "devDependencies": {
         "@babel/plugin-transform-modules-commonjs": "7.16.0",
         "@types/jest": "27.0.3",

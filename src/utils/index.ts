@@ -1,6 +1,8 @@
-export function chunkArray(emails: string[], limit: number) {
+import { IContact } from '../@types/types';
+
+export function chunkArray(emails: IContact[], limit: number) {
     const result = emails.reduce(
-        (resultArray: any, item: string, index: number) => {
+        (resultArray: IContact[], item: IContact, index: number) => {
             const chunkIndex = Math.floor(index / limit);
 
             if (!resultArray[chunkIndex]) {

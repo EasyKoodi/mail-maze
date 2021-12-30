@@ -1,6 +1,11 @@
 # mail-maze
 Mailmaze is single email sending tool, that supports most of the email sending provider services. By helping you to generate programmatic email and send them with required intervals and loops.
 
+## Supported providers
+
+- MailGun
+- SendGrid
+- SendingBlue
 
 ## Slack Status Build Status NPM version
 
